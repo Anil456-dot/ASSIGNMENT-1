@@ -1,0 +1,46 @@
+# ##TASK4
+# Problem Statement:  Write a Python program that:
+# 1.   Opens and reads a text file named sample.txt.
+# 2.   Prints its content line by line.
+# 3.   Handles errors gracefully if the file does not exist.
+
+####-------SOLUTION-1---------
+
+file1 = open('sample.txt')   ## If the file exists:
+print(file1.read())
+file1.close()
+##result :-
+# Line 1: This a sample text file.
+# Line 2: It contains multiple lines
+
+file = open('sample.txt')  ## If the file does not exist:
+print(file)
+##result :- FileNotFoundError: [Errno 2] No such file or directory: 'sample.txt'
+
+
+# Problem Statement: Write a Python program that:
+# 1.   Takes user input and writes it to a file named output.txt.
+# 2.   Appends additional data to the same file.
+# 3.   Reads and displays the final content of the file.
+
+####-------SOLUTION-2---------
+
+e = int(input("Enter the Number for input:- "))
+txt1 = '''Enter {0} write {1} the file: Hello Python!
+          Data successfully written {1} output.txt.
+
+          Enter additional {0} append: Learning file handling {2} python.
+          Data Successfully appended.
+
+          Final contain {3} output,txt:
+          Hello, Python!
+          Learing file handling {2} Python
+'''.format('text to','to','in','of')
+if e == 25:
+    file = open('outfile.txt','a+')
+    file.write(txt1)
+    file.seek(0)
+    print(file.read())
+    file.close()
+else:
+    print("Enter Worng number for input")
